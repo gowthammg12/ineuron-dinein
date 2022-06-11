@@ -29,6 +29,14 @@ class UserDetail extends StatelessWidget {
                   width: 120,
                 ),
               ),
+              Center(
+                 child: Text(
+                    "DINE-IN",
+                    style: AppTextStyles.formTitle,
+                  ),
+               ),
+
+
               Padding(
                 padding: const EdgeInsets.only(top: 50, bottom: 13, left: 20),
                 child: Text(
@@ -37,14 +45,14 @@ class UserDetail extends StatelessWidget {
                 ),
               ),
               Padding(
-                padding: const EdgeInsets.only(left: 20.0, right: 20, bottom: 15),
+                padding: const EdgeInsets.only(left: 20.0, right: 20, bottom: 25),
                 child: LoginTextField(
                   hintText: "Please enter your billing Name",
                   controller: _nameController,
                 ),
               ),
               Padding(
-                padding: const EdgeInsets.only(bottom: 13, left: 20),
+                padding: const EdgeInsets.only(bottom: 13, right:20, left: 20),
                 child: Text(
                   "Address(Optional)",
                   style: AppTextStyles.formTitle,
@@ -64,7 +72,10 @@ class UserDetail extends StatelessWidget {
                     fixedSize: MaterialStateProperty.all(Size(200, 40)),
                     backgroundColor: MaterialStateProperty.all(Colors.black),
                   ),
-                  child: Text("Proceed"),
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 20),
+                    child: Text("Proceed"),
+                  ),
                   onPressed: () {},
                 ),
               ),
