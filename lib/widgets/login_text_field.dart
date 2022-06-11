@@ -9,6 +9,7 @@ class LoginTextField extends StatelessWidget {
   final InputBorder? border;
   final String? hintText;
   final Function(String)? onChanged;
+  final int? maxLines;
 
   const LoginTextField({
     Key? key,
@@ -18,6 +19,7 @@ class LoginTextField extends StatelessWidget {
     this.hintText,
     this.onChanged,
     this.controller,
+    this.maxLines,
   }) : super(key: key);
 
   @override
@@ -30,6 +32,7 @@ class LoginTextField extends StatelessWidget {
         enabledBorder: enabledBorder,
         border: border,
       ),
+      maxLines: maxLines,
       onChanged: onChanged,
     );
   }
