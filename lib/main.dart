@@ -37,7 +37,7 @@ class DineInApp extends StatelessWidget {
         BlocProvider(create: (context) => TimerCubit()),
       ],
       child: MaterialApp(
-        home: WelcomeScreen(),
+        home: FeedbackScreen(),
       ),
     );
   }
