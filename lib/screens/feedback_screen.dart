@@ -1,4 +1,6 @@
+import 'package:dinein/metadata/meta_text.dart';
 import 'package:dinein/widgets/login_text_field.dart';
+import 'package:dinein/widgets/primary_button.dart';
 import 'package:flutter/material.dart';
 import 'package:smooth_star_rating_null_safety/smooth_star_rating_null_safety.dart';
 
@@ -64,7 +66,7 @@ class _FeedbackScreenState extends State<FeedbackScreen> {
               alignment: Alignment.centerRight,
               child: TextButton(
                 child: Text(
-                  "Skip >>",
+                  MetaText.skip,
                   style: TextStyle(
                     color: Colors.green,
                     fontSize: 14,
@@ -76,23 +78,10 @@ class _FeedbackScreenState extends State<FeedbackScreen> {
             ),
           ),
           Spacer(),
-          LayoutBuilder(
-            builder: (context, constraints) {
-              return ElevatedButton(
-                style: ButtonStyle(
-                  backgroundColor: MaterialStateProperty.all(Colors.black),
-                  fixedSize: MaterialStateProperty.all(Size(constraints.maxWidth, 60)),
-                ),
-                child: Text(
-                  "PROCEED",
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 20,
-                  ),
-                ),
-                onPressed: () {},
-              );
-            },
+          PrimaryButton(
+            label: "PROCEED",
+            buttonColor: Colors.black,
+            onPressed: () {},
           )
         ],
       ),
