@@ -1,16 +1,25 @@
+import 'package:dinein/bloc/login/bloc.dart';
+import 'package:dinein/bloc/login/events.dart';
+import 'package:dinein/bloc/login/state.dart';
 import 'package:dinein/metadata/assets.dart';
 import 'package:dinein/metadata/meta_text.dart';
 import 'package:dinein/metadata/text_style.dart';
-import 'package:dinein/repository/login.dart';
 import 'package:dinein/utils/validation.dart';
 import 'package:dinein/widgets/login_text_field.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
-class LoginScreen extends StatelessWidget {
+class LoginScreen extends StatefulWidget {
   LoginScreen({Key? key}) : super(key: key);
 
-  final TextEditingController _mobileNumberController = TextEditingController();
+  @override
+  State<LoginScreen> createState() => _LoginScreenState();
+}
+
+class _LoginScreenState extends State<LoginScreen> {
+  bool? isValidMobileNumber;
+  String? mobileNumber;
+  final TextEditingController _otpController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -41,20 +50,56 @@ class LoginScreen extends StatelessWidget {
                 ),
               ),
               Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 20.0),
+                padding: const EdgeInsets.only(left: 20.0, right: 20, bottom: 15),
                 child: LoginTextField(
-                  controller: _mobileNumberController,
                   hintText: MetaText.pleaseEnterMobileNumber,
-                  onChanged: (val) {},
+                  onChanged: (String val) {
+                    setState(() {
+                      isValidMobileNumber = Validation().validateMobileNumber(val);
+                      mobileNumber = val;
+                    });
+                  },
                 ),
               ),
-              OutlinedButton(
-                child: Text("LOGIN"),
-                onPressed: () async {
-                  bool isValidMobileNumber = Validation().validateMobileNumber(_mobileNumberController.text);
-                  await LoginRepository().authenticateWithMobileNumber(_mobileNumberController.text);
+              BlocBuilder<LoginBloc, LoginState>(
+                builder: (context, state) {
+                  if (state is LoginInitialState) {
+                    return Align(
+                      alignment: Alignment.centerRight,
+                      child: OutlinedButton(
+                        child: Text("Generate OTP"),
+                        onPressed: (isValidMobileNumber ?? false)
+                            ? () async {
+                                context.read<LoginBloc>().add(GenerateOtp(mobileNumber ?? ""));
+                              }
+                            : null,
+                      ),
+                    );
+                  }
+                  return Container();
                 },
               ),
+              BlocBuilder<LoginBloc, LoginState>(
+                builder: (context, state) {
+                  if (state is OtpState) {
+                    return Padding(
+                      padding: const EdgeInsets.symmetric(vertical: 20.0, horizontal: 20.0),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          Text("Otp is sent to your mobile"),
+                          LoginTextField(
+                            hintText: "Please enter the OTP",
+                            controller: _otpController,
+                          ),
+                        ],
+                      ),
+                    );
+                  } else {
+                    return Container();
+                  }
+                },
+              )
             ],
           ),
         ),

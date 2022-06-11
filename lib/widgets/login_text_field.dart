@@ -1,4 +1,3 @@
-import 'package:dinein/metadata/meta_text.dart';
 import 'package:dinein/metadata/styles.dart';
 import 'package:dinein/metadata/text_style.dart';
 import 'package:flutter/material.dart';
