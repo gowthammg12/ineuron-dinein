@@ -3,7 +3,6 @@ import 'package:dinein/repository/login.dart';
 import 'package:dinein/screens/auth/login.dart';
 import 'package:dinein/screens/auth/user_detail.dart';
 import 'package:dinein/screens/feedback_screen.dart';
-import 'package:dinein/screens/welcome_screen.dart';
 import 'package:dinein/utils/timer_bloc.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
