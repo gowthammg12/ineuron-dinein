@@ -2,14 +2,14 @@ import 'package:dinein/models/food_item.dart';
 import 'package:dinein/widgets/primary_button.dart';
 import 'package:flutter/material.dart';
 
-class FoodPreviewScreen extends StatefulWidget {
-  FoodPreviewScreen({Key? key}) : super(key: key);
+class FoodPriorityScreen extends StatefulWidget {
+  FoodPriorityScreen({Key? key}) : super(key: key);
 
   @override
-  State<FoodPreviewScreen> createState() => _FoodPreviewScreenState();
+  State<FoodPriorityScreen> createState() => _FoodPriorityScreenState();
 }
 
-class _FoodPreviewScreenState extends State<FoodPreviewScreen> {
+class _FoodPriorityScreenState extends State<FoodPriorityScreen> {
   final List<FoodItem> _items = [
     FoodItem(
       id: "DOSA",
