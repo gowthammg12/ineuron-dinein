@@ -1,5 +1,13 @@
+import 'package:dinein/bloc/login/bloc.dart';
+import 'package:dinein/repository/login.dart';
+import 'package:dinein/screens/auth/login.dart';
+import 'package:dinein/screens/auth/user_detail.dart';
+import 'package:dinein/screens/feedback_screen.dart';
+import 'package:dinein/screens/welcome_screen.dart';
+import 'package:dinein/utils/timer_bloc.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:url_strategy/url_strategy.dart';
 
 void main() async {
@@ -23,6 +31,14 @@ class DineInApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp();
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider(create: (context) => LoginBloc(LoginRepository())),
+        BlocProvider(create: (context) => TimerCubit()),
+      ],
+      child: MaterialApp(
+        home: LoginScreen(),
+      ),
+    );
   }
 }
