@@ -42,6 +42,15 @@ class _LoginScreenState extends State<LoginScreen> {
                   width: 120,
                 ),
               ),
+
+               Center(
+                 child: Text(
+                    "DINE-IN",
+                    style: AppTextStyles.formTitle,
+                  ),
+               ),
+              
+
               Padding(
                 padding: const EdgeInsets.only(top: 50, bottom: 13, left: 20),
                 child: Text(
@@ -64,15 +73,18 @@ class _LoginScreenState extends State<LoginScreen> {
               BlocBuilder<LoginBloc, LoginState>(
                 builder: (context, state) {
                   if (state is LoginInitialState) {
-                    return Align(
-                      alignment: Alignment.centerRight,
-                      child: OutlinedButton(
-                        child: Text("Generate OTP"),
-                        onPressed: (isValidMobileNumber ?? false)
-                            ? () async {
-                                context.read<LoginBloc>().add(GenerateOtp(mobileNumber ?? ""));
-                              }
-                            : null,
+                    return Padding(
+                      padding: const EdgeInsets.only(right: 20,left: 20),
+                      child: Align(
+                        alignment: Alignment.centerRight,
+                        child: OutlinedButton(
+                          child: Text("Generate OTP",style: TextStyle(color: Colors.black54),),
+                          onPressed: (isValidMobileNumber ?? false)
+                              ? () async {
+                                  context.read<LoginBloc>().add(GenerateOtp(mobileNumber ?? ""));
+                                }
+                              : null,
+                        ),
                       ),
                     );
                   }

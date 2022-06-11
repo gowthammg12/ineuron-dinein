@@ -10,6 +10,6 @@ class AppTextStyles {
   static const TextStyle textFieldHintStyle = TextStyle(
     color: Colors.grey,
     fontSize: 18,
-    fontWeight: FontWeight.w800,
+    fontWeight: FontWeight.w600,
   );
 }
