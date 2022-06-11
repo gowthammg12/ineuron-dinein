@@ -20,6 +20,9 @@ class PrimaryButton extends StatelessWidget {
           style: ButtonStyle(
             backgroundColor: MaterialStateProperty.all(buttonColor),
             fixedSize: MaterialStateProperty.all(Size(constraints.maxWidth, 60)),
+            shape: MaterialStateProperty.all(
+              RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.zero)),
+            ),
           ),
           child: Text(
             label,

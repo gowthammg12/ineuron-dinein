@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:dinein/models/category.dart';
 import 'package:dinein/widgets/primary_button.dart';
@@ -28,8 +30,40 @@ class WelcomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
       appBar: AppBar(
-        toolbarHeight: 0,
+        backgroundColor: Colors.white,
+        elevation: 0,
+        title: Text(
+          "Welcome Gowtham",
+          style: TextStyle(
+            color: Colors.black,
+            fontSize: 25,
+            fontWeight: FontWeight.w700,
+          ),
+        ),
+        centerTitle: true,
+        actions: [
+          IconButton(
+            icon: Icon(
+              Icons.history,
+              color: Colors.black,
+              size: 30,
+            ),
+            onPressed: () {},
+          ),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 10.0),
+            child: IconButton(
+              icon: Icon(
+                Icons.fastfood,
+                color: Colors.black,
+                size: 26,
+              ),
+              onPressed: () {},
+            ),
+          ),
+        ],
       ),
       body: Column(
         children: [
