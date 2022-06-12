@@ -1,5 +1,3 @@
-sh
-
 # Install Operating system and dependencies
 FROM ubuntu:20.04
 
