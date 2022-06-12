@@ -1,3 +1,5 @@
+import 'package:dinein/screens/admin/add_food_details.dart';
+import 'package:dinein/screens/admin/dashboard.dart';
 import 'package:dinein/screens/auth/login.dart';
 import 'package:dinein/screens/auth/user_detail.dart';
 import 'package:dinein/screens/error_screen.dart';
@@ -5,6 +7,7 @@ import 'package:dinein/screens/feedback_screen.dart';
 import 'package:dinein/screens/food_priority.dart';
 import 'package:dinein/screens/order_histories_screen.dart';
 import 'package:dinein/screens/order_history_screen.dart';
+import 'package:dinein/screens/order_status.dart';
 import 'package:dinein/screens/welcome_screen.dart';
 import 'package:flutter/material.dart';
 
@@ -17,6 +20,9 @@ class Routes {
   static const String welcomeScreen = "/welcome";
   static const String orderHistories = "/order/histories";
   static const String orderHistory = "/order/history";
+  static const String orderStatus = "/order/status";
+  static const String addFoodDetails = "/admin/add_new_item";
+  static const String adminDashboard = "/admin/dashboard";
 
   static Route<dynamic> onGenerateRoute(RouteSettings settings) {
     final uri = Uri.base;
@@ -49,6 +55,25 @@ class Routes {
       case orderHistory:
         return MaterialPageRoute(builder: (context) {
           return OrderHistoryScreen();
+        });
+      case orderStatus:
+        final data = uri.queryParameters;
+        return MaterialPageRoute(builder: (context) {
+          return OrderStatusScreen(
+            orderStatus: data['order_status'] == "PENDING_ORDERS"
+                ? OrderStatus.PENDING_ORDERS
+                : data['order_status'] == "PICKED_ORDERS"
+                    ? OrderStatus.PICKED_ORDERS
+                    : OrderStatus.COMPLETED_ORDERS,
+          );
+        });
+      case addFoodDetails:
+        return MaterialPageRoute(builder: (context) {
+          return AddFoodDetails();
+        });
+      case adminDashboard:
+        return MaterialPageRoute(builder: (context) {
+          return AdminDashboard();
         });
       case login:
       case "/":
