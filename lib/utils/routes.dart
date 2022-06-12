@@ -1,3 +1,5 @@
+import 'package:dinein/screens/admin/add_food_details.dart';
+import 'package:dinein/screens/admin/dashboard.dart';
 import 'package:dinein/screens/auth/login.dart';
 import 'package:dinein/screens/auth/user_detail.dart';
 import 'package:dinein/screens/error_screen.dart';
@@ -19,6 +21,8 @@ class Routes {
   static const String orderHistories = "/order/histories";
   static const String orderHistory = "/order/history";
   static const String orderStatus = "/order/status";
+  static const String addFoodDetails = "/admin/add_new_item";
+  static const String adminDashboard = "/admin/dashboard";
 
   static Route<dynamic> onGenerateRoute(RouteSettings settings) {
     final uri = Uri.base;
@@ -62,6 +66,14 @@ class Routes {
                     ? OrderStatus.PICKED_ORDERS
                     : OrderStatus.COMPLETED_ORDERS,
           );
+        });
+      case addFoodDetails:
+        return MaterialPageRoute(builder: (context) {
+          return AddFoodDetails();
+        });
+      case adminDashboard:
+        return MaterialPageRoute(builder: (context) {
+          return AdminDashboard();
         });
       case login:
       case "/":
