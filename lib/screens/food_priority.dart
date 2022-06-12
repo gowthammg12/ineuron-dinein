@@ -68,7 +68,10 @@ class _FoodPriorityScreenState extends State<FoodPriorityScreen> {
                   key: Key(item.id),
                   title: Text(item.name),
                   children: [
-                    Text(item.description),
+                    Padding(
+                      padding: const EdgeInsets.only(left: 20,right:30,bottom: 10),
+                      child: Text(item.description),
+                    ),
                   ],
                   trailing: SizedBox.shrink(),
                 );
