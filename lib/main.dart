@@ -2,6 +2,7 @@ import 'package:dinein/bloc/login/bloc.dart';
 import 'package:dinein/repository/login.dart';
 import 'package:dinein/screens/auth/login.dart';
 import 'package:dinein/screens/auth/user_detail.dart';
+import 'package:dinein/screens/error_screen.dart';
 import 'package:dinein/screens/feedback_screen.dart';
 import 'package:dinein/screens/food_priority.dart';
 import 'package:dinein/screens/welcome_screen.dart';
