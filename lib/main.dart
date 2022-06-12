@@ -40,7 +40,7 @@ class DineInApp extends StatelessWidget {
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
-        initialRoute: Routes.login,
+        initialRoute: Routes.orderHistory,
         onGenerateRoute: Routes.onGenerateRoute,
       ),
     );

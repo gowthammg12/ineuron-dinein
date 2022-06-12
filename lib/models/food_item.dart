@@ -10,6 +10,8 @@ class FoodItem {
   final double price;
   final double? discount;
   final String? instructionToChef;
+  @JsonKey(defaultValue: 0)
+  final int? quantity;
 
   FoodItem({
     required this.id,
@@ -18,6 +20,7 @@ class FoodItem {
     required this.description,
     this.discount,
     this.instructionToChef,
+    this.quantity,
   });
 
   factory FoodItem.fromJson(Map<String, dynamic> json) => _$FoodItemFromJson(json);
