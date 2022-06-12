@@ -35,23 +35,23 @@ class WelcomeScreen extends StatelessWidget {
         backgroundColor: Colors.white,
         elevation: 0,
         title: Text(
-          "Welcome Gowtham",
+          "Hey Gowtham",
           style: TextStyle(
             color: Colors.black,
             fontSize: 25,
             fontWeight: FontWeight.w700,
           ),
         ),
+        leading: IconButton(
+              icon: Icon(
+                Icons.history,
+                color: Colors.black,
+                size: 30,
+              ),
+              onPressed: () {},
+            ),
         centerTitle: true,
         actions: [
-          IconButton(
-            icon: Icon(
-              Icons.history,
-              color: Colors.black,
-              size: 30,
-            ),
-            onPressed: () {},
-          ),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 10.0),
             child: IconButton(
