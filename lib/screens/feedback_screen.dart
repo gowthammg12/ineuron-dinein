@@ -4,14 +4,14 @@ import 'package:dinein/widgets/primary_button.dart';
 import 'package:flutter/material.dart';
 import 'package:smooth_star_rating_null_safety/smooth_star_rating_null_safety.dart';
 
-class FeedbackScreen extends StatefulWidget {
-  FeedbackScreen({Key? key}) : super(key: key);
+class OrderFeedbackScreen extends StatefulWidget {
+  OrderFeedbackScreen({Key? key}) : super(key: key);
 
   @override
-  State<FeedbackScreen> createState() => _FeedbackScreenState();
+  State<OrderFeedbackScreen> createState() => _OrderFeedbackScreenState();
 }
 
-class _FeedbackScreenState extends State<FeedbackScreen> {
+class _OrderFeedbackScreenState extends State<OrderFeedbackScreen> {
   double rating = 0.0;
 
   @override

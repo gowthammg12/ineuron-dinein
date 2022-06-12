@@ -3,8 +3,8 @@ import 'package:dinein/metadata/text_style.dart';
 import 'package:dinein/widgets/login_text_field.dart';
 import 'package:flutter/material.dart';
 
-class UserDetail extends StatelessWidget {
-  UserDetail({Key? key}) : super(key: key);
+class UserDetailScreen extends StatelessWidget {
+  UserDetailScreen({Key? key}) : super(key: key);
   final TextEditingController _nameController = TextEditingController();
   final TextEditingController _addressController = TextEditingController();
 
@@ -30,13 +30,11 @@ class UserDetail extends StatelessWidget {
                 ),
               ),
               Center(
-                 child: Text(
-                    "DINE-IN",
-                    style: AppTextStyles.formTitle,
-                  ),
-               ),
-
-
+                child: Text(
+                  "DINE-IN",
+                  style: AppTextStyles.formTitle,
+                ),
+              ),
               Padding(
                 padding: const EdgeInsets.only(top: 50, bottom: 13, left: 20),
                 child: Text(
@@ -52,7 +50,7 @@ class UserDetail extends StatelessWidget {
                 ),
               ),
               Padding(
-                padding: const EdgeInsets.only(bottom: 13, right:20, left: 20),
+                padding: const EdgeInsets.only(bottom: 13, right: 20, left: 20),
                 child: Text(
                   "Address(Optional)",
                   style: AppTextStyles.formTitle,
