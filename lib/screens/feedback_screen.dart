@@ -55,8 +55,8 @@ class _OrderFeedbackScreenState extends State<OrderFeedbackScreen> {
               size: 40.0,
               filledIconData: Icons.star,
               halfFilledIconData: Icons.star_half_sharp,
-              color: Colors.green,
-              borderColor: Colors.green,
+              color: Colors.red.shade400,
+              borderColor: Colors.red.shade400,
               spacing: 0.0,
             ),
           ),
@@ -68,7 +68,7 @@ class _OrderFeedbackScreenState extends State<OrderFeedbackScreen> {
                 child: Text(
                   MetaText.skip,
                   style: TextStyle(
-                    color: Colors.green,
+                    color: Colors.red.shade400,
                     fontSize: 14,
                     fontWeight: FontWeight.w600,
                   ),

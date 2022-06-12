@@ -127,11 +127,11 @@ class WelcomeScreen extends StatelessWidget {
                                 style: TextStyle(
                                   color: Colors.white,
                                   fontSize: 18,
-                                  fontWeight: FontWeight.w500,
+                                  fontWeight: FontWeight.w600,
                                 ),
                               ),
                               decoration: BoxDecoration(
-                                color: Colors.green.shade200,
+                                color: Colors.red.shade200,
                                 borderRadius: BorderRadius.all(Radius.circular(12)),
                               ),
                             ))
