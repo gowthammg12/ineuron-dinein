@@ -5,6 +5,7 @@ import 'package:dinein/screens/feedback_screen.dart';
 import 'package:dinein/screens/food_priority.dart';
 import 'package:dinein/screens/order_histories_screen.dart';
 import 'package:dinein/screens/order_history_screen.dart';
+import 'package:dinein/screens/order_status.dart';
 import 'package:dinein/screens/welcome_screen.dart';
 import 'package:flutter/material.dart';
 
@@ -17,6 +18,7 @@ class Routes {
   static const String welcomeScreen = "/welcome";
   static const String orderHistories = "/order/histories";
   static const String orderHistory = "/order/history";
+  static const String orderStatus = "/order/status";
 
   static Route<dynamic> onGenerateRoute(RouteSettings settings) {
     final uri = Uri.base;
@@ -49,6 +51,17 @@ class Routes {
       case orderHistory:
         return MaterialPageRoute(builder: (context) {
           return OrderHistoryScreen();
+        });
+      case orderStatus:
+        final data = uri.queryParameters;
+        return MaterialPageRoute(builder: (context) {
+          return OrderStatusScreen(
+            orderStatus: data['order_status'] == "PENDING_ORDERS"
+                ? OrderStatus.PENDING_ORDERS
+                : data['order_status'] == "PICKED_ORDERS"
+                    ? OrderStatus.PICKED_ORDERS
+                    : OrderStatus.COMPLETED_ORDERS,
+          );
         });
       case login:
       case "/":
